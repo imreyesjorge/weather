@@ -5,6 +5,12 @@
   "repository": "git@github.com:imreyesjorge/weather.git",
   "author": "Jorge Reyes <40706868+imreyesjorge@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@types/node": "^20.2.5",
     "@types/react": "^18.2.8",
