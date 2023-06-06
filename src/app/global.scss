@@ -11,6 +11,20 @@ body {
   box-sizing: border-box;
 }
 
+main {
+  padding: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.container {
+  width: 1080px;
+  max-width: 1080px;
+}
+
 .rootLayout {
   height: 100vh;
 

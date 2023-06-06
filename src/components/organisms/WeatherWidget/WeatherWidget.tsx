@@ -5,7 +5,7 @@ import { useLocation } from "../../../hooks/useLocation";
 import { useEffect, useRef, useState } from "react";
 import { getWeather } from "../../../utils/getWeather";
 
-export const Header = () => {
+export const WeatherWidget = () => {
   const [cityName, setCityName] = useState<String>('');
   const { current: currentDate } = useRef<Date>(new Date());
 
@@ -36,7 +36,7 @@ export const Header = () => {
   };
 
   return (
-    <header>
+    <section>
       <div className="leftContainer">
         <div className="city">
           <svg
@@ -70,6 +70,6 @@ export const Header = () => {
           </p>
         )}
       </div>
-    </header>
+    </section>
   );
 };

@@ -1,10 +1,12 @@
-import { Header } from "../components/molecules/Header";
+import { WeatherWidget } from "../components/organisms/WeatherWidget";
 
 const Home = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <Header />
-    </div>
+    <main>
+      <div className="container">
+        <WeatherWidget />
+      </div>
+    </main>
   );
 };
 
