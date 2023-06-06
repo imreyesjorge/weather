@@ -29,7 +29,6 @@ export const useLocation = (): UseLocation => {
         setIsLoading(false);
 
         setData({
-          name: "Mérida",
           lat: pos.coords.latitude,
           lon: pos.coords.longitude,
         });

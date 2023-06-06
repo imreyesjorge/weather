@@ -2,12 +2,31 @@
 
 import "./styles.scss";
 import { useLocation } from "../../../hooks/useLocation";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getWeather } from "../../../utils/getWeather";
 
 export const Header = () => {
+  const [cityName, setCityName] = useState<String>('');
   const { current: currentDate } = useRef<Date>(new Date());
 
   const [data, isLoading, isError] = useLocation();
+
+  const getWeatherData = async () => {
+    // We could simplify this into a one-liner, but for readability 
+    // reasons I prefer to store the result on a variable first.
+    //
+    // setCityName((await getWeather(data.lat, data.lon)).name);
+    const weatherData = await getWeather(data.lat, data.lon);
+    setCityName(weatherData.name)
+  }
+
+  useEffect(() => {
+    if (isLoading || isError) {
+      return
+    }
+
+    getWeatherData();
+  }, [data, isLoading, isError])
 
   const dateOptions: Intl.DateTimeFormatOptions = {
     weekday: "long",
@@ -39,7 +58,7 @@ export const Header = () => {
             />
           )}
           {isError && <p>Unknown</p>}
-          {data && <p>{data?.name}</p>}
+          {data && <p>{cityName}</p>}
         </div>
         <p>{currentDate.toLocaleDateString(undefined, dateOptions)}</p>
       </div>

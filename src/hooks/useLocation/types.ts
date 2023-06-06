@@ -1,5 +1,4 @@
 export type LocationData = {
-  name: string;
   lat: number;
   lon: number;
 };
