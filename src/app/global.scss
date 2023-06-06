@@ -28,3 +28,16 @@ body {
 
   background-color: royalblue;
 }
+
+.skeleton {
+  animation: skeleton 0.6s infinite alternate;
+}
+
+@keyframes skeleton {
+  from {
+    background-color: hsl(0, 0%, 85%);
+  }
+  to {
+    background-color: hsl(0, 0%, 95%);
+  }
+}
