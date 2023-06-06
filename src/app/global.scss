@@ -63,3 +63,9 @@ main {
     background-color: hsl(0, 0%, 95%);
   }
 }
+
+@media (max-width: 650px) {
+  main {
+    padding: 20px;
+  }
+}

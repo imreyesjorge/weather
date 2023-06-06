@@ -7,6 +7,7 @@ import { getWeather } from "../../../utils/getWeather";
 
 export const WeatherWidget = () => {
   const [cityName, setCityName] = useState<String>('');
+  const [temp, setTemp] = useState<number>(0);
   const { current: currentDate } = useRef<Date>(new Date());
 
   const [data, isLoading, isError] = useLocation();
@@ -17,7 +18,10 @@ export const WeatherWidget = () => {
     //
     // setCityName((await getWeather(data.lat, data.lon)).name);
     const weatherData = await getWeather(data.lat, data.lon);
-    setCityName(weatherData.name)
+
+    // Update the widget state
+    setCityName(weatherData.name);
+    setTemp(weatherData.main.temp);
   }
 
   useEffect(() => {
@@ -63,12 +67,9 @@ export const WeatherWidget = () => {
         <p>{currentDate.toLocaleDateString(undefined, dateOptions)}</p>
       </div>
       <div className="rightContainer">
-        {isError && <p className="coords">Couldn’t get your location</p>}
-        {data && (
-          <p className="coords">
-            <span>lat:</span> {data?.lat}, <span>lon:</span> {data?.lon}
-          </p>
-        )}
+        <h3 className="temp">
+          {temp}<span>°</span>
+        </h3>
       </div>
     </section>
   );

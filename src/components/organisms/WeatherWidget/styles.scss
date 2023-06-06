@@ -39,8 +39,35 @@ section {
     align-items: center;
 
     svg {
-      fill: royalblue;
+      fill: #6665DD;
       height: 20px;
+    }
+  }
+}
+
+.rightContainer {
+  .temp {
+    font-size: 38px;
+    font-weight: 500;
+
+    span {
+      opacity: 0.2;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  section {
+    text-align: center;
+
+    flex-direction: column;
+
+    .leftContainer {
+      margin-bottom: 15px;
+
+      .city {
+        justify-content: center;
+      }
     }
   }
 }
