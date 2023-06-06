@@ -8,7 +8,15 @@
 }
 
 body {
+  color: #141414;
   box-sizing: border-box;
+
+  background-size: 5px 5px;
+  background-image: radial-gradient(
+    at center,
+    rgba(black, 0.15) 20%,
+    whitesmoke 20%
+  );
 }
 
 main {
@@ -21,7 +29,7 @@ main {
 }
 
 .container {
-  width: 1080px;
+  width: 100%;
   max-width: 1080px;
 }
 
@@ -40,7 +48,7 @@ main {
 
   padding: 8px;
 
-  background-color: royalblue;
+  background-color: #141414;
 }
 
 .skeleton {
