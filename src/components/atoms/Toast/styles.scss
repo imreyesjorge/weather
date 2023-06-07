@@ -1,0 +1,51 @@
+.toast {
+  color: #141414;
+  font-size: 13px;
+
+  padding: 12px;
+
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgba(black, 0.1);
+  box-shadow: 0 4px 18px rgba(black, 0.1);
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  .icon {
+    width: 25px;
+  }
+
+  .title {
+    font-weight: 600;
+
+    margin-bottom: 2px;
+  }
+
+  .desc {
+    color: #141414;
+    font-weight: 350;
+  }
+}
+
+.success {
+  color: #4dccbd;
+  .title {
+    color: currentcolor;
+  }
+}
+
+.info {
+  color: #6184d8;
+  .title {
+    color: currentcolor;
+  }
+}
+
+.warning {
+  color: #fcba04;
+  .title {
+    color: currentcolor;
+  }
+}
