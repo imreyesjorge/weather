@@ -2,7 +2,11 @@
   color: #141414;
   font-size: 13px;
 
+  max-width: 300px;
+
+  margin: 20px;
   padding: 12px;
+  padding-right: 18px;
 
   background-color: white;
   border-radius: 8px;
@@ -13,8 +17,13 @@
   gap: 8px;
   align-items: center;
 
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
   .icon {
     width: 25px;
+    min-width: 25px;
   }
 
   .title {
