@@ -5,7 +5,7 @@ import { Toast } from "../../atoms/Toast";
 import { ToastContext } from "../../../context/ToastContext";
 
 export const ToastContainer = () => {
-  const { toastData, createToast } = useContext(ToastContext)
+  const { toastData } = useContext(ToastContext)
 
   return (
     <article>

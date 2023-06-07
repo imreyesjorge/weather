@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
-import { LocationData, UseLocation } from "./types";
+import { useContext, useEffect, useState } from 'react';
+import { LocationData, UseLocation } from './types';
+import { ToastContext } from '../../context/ToastContext';
+import { ToastType } from '../../components/atoms/Toast/types';
 
 /**
  * Learn more about how to get the position via the browser API
@@ -14,6 +16,8 @@ export const useLocation = (): UseLocation => {
   const [data, setData] = useState<LocationData | null>(null);
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [isError, setIsError] = useState<Boolean>(false);
+
+  const { createToast } = useContext(ToastContext);
 
   useEffect(() => {
     // We declare–and–call an anonymous function to fetch the
@@ -35,6 +39,11 @@ export const useLocation = (): UseLocation => {
       }
 
       function error(_: GeolocationPositionError) {
+        createToast({
+          title: 'Something went wrong',
+          desc: 'Couldn’t find your location',
+          type: ToastType.WARNING,
+        });
         setIsLoading(false);
         setIsError(true);
       }
