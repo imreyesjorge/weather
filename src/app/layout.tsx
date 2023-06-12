@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { GithubIcon } from "../components/atoms/icons/GithubIcon";
 import "./global.scss";
 import { Inter } from "next/font/google";
 
@@ -22,6 +24,11 @@ export default function RootLayout({
         <div className="rootLayout">
           <p className="topBanner">Show-off Project 🚀</p>
           <div>{children}</div>
+          <div className="socialContainer">
+            <Link href="https://github.com/imreyesjorge/widgets" style={{ height: 20 }}>
+              <GithubIcon fill="#141414" size={20} />
+            </Link>
+          </div>
         </div>
       </body>
     </html>

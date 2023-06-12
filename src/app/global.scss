@@ -55,6 +55,22 @@ main {
   background-color: #141414;
 }
 
+.socialContainer {
+  margin: 10px;
+  padding: 5px;
+
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  gap: 10px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .skeleton {
   animation: skeleton 0.6s infinite alternate;
 }

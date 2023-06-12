@@ -20,8 +20,8 @@ export const WeatherWidget = () => {
     const weatherData = await getWeather(data.lat, data.lon);
 
     // Update the widget state
-    setCityName(weatherData.name);
-    setTemp(weatherData.main.temp);
+    setCityName(weatherData?.name);
+    setTemp(weatherData?.main?.temp || 0);
   }
 
   useEffect(() => {
