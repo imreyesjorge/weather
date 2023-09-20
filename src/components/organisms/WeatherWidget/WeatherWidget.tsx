@@ -2,35 +2,56 @@
 
 import "./styles.scss";
 import { useLocation } from "../../../hooks/useLocation";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { getWeather } from "../../../utils/getWeather";
+import { ToastType } from "../../atoms/Toast/types";
+import { ToastContext } from "../../../context/ToastContext";
 
 export const WeatherWidget = () => {
-  const [cityName, setCityName] = useState<String>('');
+  const [cityName, setCityName] = useState<String>("");
   const [temp, setTemp] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
+
   const { current: currentDate } = useRef<Date>(new Date());
 
-  const [data, isLoading, isError] = useLocation();
+  const [data, locationLoading, locationError] = useLocation();
+  const { createToast } = useContext(ToastContext);
 
   const getWeatherData = async () => {
-    // We could simplify this into a one-liner, but for readability 
-    // reasons I prefer to store the result on a variable first.
-    //
-    // setCityName((await getWeather(data.lat, data.lon)).name);
-    const weatherData = await getWeather(data.lat, data.lon);
+    try {
+      // We could simplify this into a one-liner, but for readability
+      // reasons I prefer to store the result on a variable first.
+      //
+      // setCityName((await getWeather(data.lat, data.lon)).name);
+      const weatherData = await getWeather(data.lat, data.lon);
 
-    // Update the widget state
-    setCityName(weatherData?.name);
-    setTemp(weatherData?.main?.temp || 0);
-  }
+      if (weatherData.cod !== 200) {
+        setIsError(true);
+        throw new Error(`Error while getting weather information`);
+      }
+
+      // Update the widget state
+      setCityName(weatherData?.name);
+      setTemp(weatherData?.main?.temp || 0);
+    } catch (_) {
+      createToast({
+        title: "Oops!",
+        desc: "Something went wrong.",
+        type: ToastType.WARNING,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    if (isLoading || isError) {
-      return
+    if (locationLoading || locationError) {
+      return;
     }
 
     getWeatherData();
-  }, [data, isLoading, isError])
+  }, [data, locationLoading, locationError]);
 
   const dateOptions: Intl.DateTimeFormatOptions = {
     weekday: "long",
@@ -68,7 +89,8 @@ export const WeatherWidget = () => {
       </div>
       <div className="rightContainer">
         <h3 className="temp">
-          {temp}<span>°</span>
+          {temp}
+          <span>°</span>
         </h3>
       </div>
     </section>
