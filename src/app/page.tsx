@@ -3,6 +3,8 @@ import { ToastType } from "../components/atoms/Toast/types";
 import { WeatherWidget } from "../components/organisms/WeatherWidget";
 import { ToastContextProvider } from "../context/ToastContext";
 
+// https://api.vatcomply.com/rates?base=USD
+
 const Home = () => {
   return (
     <main>
