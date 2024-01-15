@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useState } from 'react';
-import { ToastProps } from '../../components/atoms/Toast/types';
+import { ToastProps } from '../../components/atoms/Toast/Toast.types';
 
 export const ToastContext = createContext(null);
 

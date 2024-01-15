@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GithubIcon } from "../components/atoms/icons/GithubIcon";
+import { GithubIcon } from "../components/atoms/icons/GithubIcon.icon";
 import "./global.scss";
 import { Inter } from "next/font/google";
 

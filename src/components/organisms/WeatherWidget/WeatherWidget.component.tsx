@@ -4,7 +4,7 @@ import "./styles.scss";
 import { useLocation } from "../../../hooks/useLocation";
 import { useContext, useEffect, useRef, useState } from "react";
 import { getWeather } from "../../../utils/getWeather";
-import { ToastType } from "../../atoms/Toast/types";
+import { ToastType } from "../../atoms/Toast/Toast.types";
 import { ToastContext } from "../../../context/ToastContext";
 
 export const WeatherWidget = () => {

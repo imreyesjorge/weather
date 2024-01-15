@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { LocationData, UseLocation } from './types';
 import { ToastContext } from '../../context/ToastContext';
-import { ToastType } from '../../components/atoms/Toast/types';
+import { ToastType } from '../../components/atoms/Toast/Toast.types';
 
 /**
  * Learn more about how to get the position via the browser API

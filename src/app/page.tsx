@@ -1,5 +1,5 @@
 import { ToastContainer } from "../components/molecules/ToastContainer";
-import { ToastType } from "../components/atoms/Toast/types";
+import { ToastType } from "../components/atoms/Toast/Toast.types";
 import { WeatherWidget } from "../components/organisms/WeatherWidget";
 import { ToastContextProvider } from "../context/ToastContext";
 

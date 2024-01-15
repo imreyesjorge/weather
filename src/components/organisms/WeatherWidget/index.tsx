@@ -1,1 +1,1 @@
-export * from './WeatherWidget';
+export * from './WeatherWidget.component';
