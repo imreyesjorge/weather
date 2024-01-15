@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { GithubIcon } from "../components/atoms/icons/GithubIcon.icon";
 import "./global.scss";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 
-const inter = Inter({
+const rubik = Rubik({
   subsets: ["latin"],
   display: "swap",
 });
@@ -19,13 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={rubik.className}>
       <body>
         <div className="rootLayout">
           <p className="topBanner">Show-off Project 🚀</p>
           <div>{children}</div>
           <div className="socialContainer">
-            <Link href="https://github.com/imreyesjorge/widgets" style={{ height: 20 }}>
+            <Link
+              href="https://github.com/imreyesjorge/widgets"
+              style={{ height: 20 }}
+            >
               <GithubIcon fill="#141414" size={20} />
             </Link>
           </div>
